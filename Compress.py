@@ -68,12 +68,12 @@ def cmpbit(inbit):
     if no == "0":
         use = (1,2)
     else:
-        use = (0,str(5-int(no)))
+        use = (0,3-int(no))
     out = ""
     print("Proccess 2")
     for i in b3:
-        if i in use:
-            out = out + str(use.index(i))
+        if int(i) in use:
+            out = out + str(use.index(int(i)))
     return "10"+(b3_to_b2(no+b2_to_b3(out)))
 def cmponly(inbit):
     b3 = b2_to_b3(inbit)
@@ -83,7 +83,7 @@ def cmponly(inbit):
             only = str(cnt.index(o))
             size = o
     print("Proccess 2")
-    return "11"+(b3_to_b2(only+b2_to_b3(b_to_b(size + 1,10,2)[1:])))
+    return "11"+(b3_to_b2(only+b2_to_b3(b_to_b(str(size + 1),10,2)[1:])))
 def cmpbest(inbit):
     print("Proccess 1")
     cnt = count_digits(b2_to_b3(inbit)).values()
